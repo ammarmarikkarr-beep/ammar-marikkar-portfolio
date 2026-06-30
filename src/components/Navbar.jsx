@@ -19,21 +19,21 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
 
-      if (window.scrollY < 260) {
+      if (window.scrollY < 220) {
         setActiveLink('#home')
         return
       }
 
+      const scrollPosition = window.scrollY + 160
       let currentSection = '#home'
-      const scrollPosition = window.scrollY + 170
 
       NAV_LINKS.forEach((link) => {
         if (link.href === '#home') return
 
-        const section = document.querySelector(link.href)
-        if (!section) return
+        const sectionId = link.href.replace('#', '')
+        const section = document.getElementById(sectionId)
 
-        if (scrollPosition >= section.offsetTop) {
+        if (section && scrollPosition >= section.offsetTop) {
           currentSection = link.href
         }
       })
@@ -50,35 +50,38 @@ export default function Navbar() {
   const scrollToSection = (event, href) => {
     event.preventDefault()
     setIsOpen(false)
-    setActiveLink(href)
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const behavior = reduceMotion ? 'auto' : 'smooth'
 
     if (href === '#home') {
+      setActiveLink('#home')
+
       window.scrollTo({
         top: 0,
         behavior,
       })
 
-      window.history.replaceState(null, '', window.location.pathname)
       return
     }
 
-    const section = document.querySelector(href)
+    const sectionId = href.replace('#', '')
+    const section = document.getElementById(sectionId)
 
-    if (!section) return
+    if (!section) {
+      return
+    }
+
+    setActiveLink(href)
 
     const headerOffset = window.innerWidth <= 768 ? 105 : 125
-    const sectionPosition = section.getBoundingClientRect().top + window.scrollY
-    const scrollPosition = sectionPosition - headerOffset
+    const sectionTop = section.getBoundingClientRect().top + window.scrollY
+    const targetPosition = sectionTop - headerOffset
 
     window.scrollTo({
-      top: scrollPosition,
+      top: targetPosition,
       behavior,
     })
-
-    window.history.replaceState(null, '', href)
   }
 
   return (
@@ -100,7 +103,6 @@ export default function Navbar() {
                 href={link.href}
                 onClick={(event) => scrollToSection(event, link.href)}
                 className={activeLink === link.href ? 'active' : ''}
-                aria-current={activeLink === link.href ? 'page' : undefined}
               >
                 {link.label}
               </a>
@@ -127,7 +129,6 @@ export default function Navbar() {
               href={link.href}
               onClick={(event) => scrollToSection(event, link.href)}
               className={activeLink === link.href ? 'active' : ''}
-              aria-current={activeLink === link.href ? 'page' : undefined}
             >
               {link.label}
             </a>
