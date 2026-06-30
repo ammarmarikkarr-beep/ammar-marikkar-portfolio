@@ -7,7 +7,6 @@ const NAV_LINKS = [
   { label: 'Skills', href: '#skills' },
   { label: 'Portfolio', href: '#work' },
   { label: 'Tech Stack', href: '#tools' },
-  { label: 'Blogs', href: '#blogs' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -20,16 +19,22 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
 
-      const sectionIds = NAV_LINKS.map((link) => link.href.replace('#', ''))
-      let currentSection = '#home'
+      if (window.scrollY < 260) {
+        setActiveLink('#home')
+        return
+      }
 
-      sectionIds.forEach((id) => {
-        const section = document.getElementById(id)
+      let currentSection = '#home'
+      const scrollPosition = window.scrollY + 170
+
+      NAV_LINKS.forEach((link) => {
+        if (link.href === '#home') return
+
+        const section = document.querySelector(link.href)
         if (!section) return
 
-        const sectionTop = section.offsetTop - 140
-        if (window.scrollY >= sectionTop) {
-          currentSection = `#${id}`
+        if (scrollPosition >= section.offsetTop) {
+          currentSection = link.href
         }
       })
 
@@ -37,20 +42,54 @@ export default function Navbar() {
     }
 
     handleScroll()
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const handleLinkClick = (href) => {
-    setActiveLink(href)
+  const scrollToSection = (event, href) => {
+    event.preventDefault()
     setIsOpen(false)
+    setActiveLink(href)
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const behavior = reduceMotion ? 'auto' : 'smooth'
+
+    if (href === '#home') {
+      window.scrollTo({
+        top: 0,
+        behavior,
+      })
+
+      window.history.replaceState(null, '', window.location.pathname)
+      return
+    }
+
+    const section = document.querySelector(href)
+
+    if (!section) return
+
+    const headerOffset = window.innerWidth <= 768 ? 105 : 125
+    const sectionPosition = section.getBoundingClientRect().top + window.scrollY
+    const scrollPosition = sectionPosition - headerOffset
+
+    window.scrollTo({
+      top: scrollPosition,
+      behavior,
+    })
+
+    window.history.replaceState(null, '', href)
   }
 
   return (
     <header className={`nav ${isScrolled ? 'nav-scrolled' : ''}`}>
       <div className="nav-shell">
         <div className="nav-inner">
-          <a href="#home" className="nav-brand" onClick={() => handleLinkClick('#home')}>
+          <a
+            href="#home"
+            className="nav-brand"
+            onClick={(event) => scrollToSection(event, '#home')}
+          >
             Ammar Marikkar
           </a>
 
@@ -59,8 +98,9 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => handleLinkClick(link.href)}
+                onClick={(event) => scrollToSection(event, link.href)}
                 className={activeLink === link.href ? 'active' : ''}
+                aria-current={activeLink === link.href ? 'page' : undefined}
               >
                 {link.label}
               </a>
@@ -70,7 +110,8 @@ export default function Navbar() {
           <button
             className={`nav-burger ${isOpen ? 'open' : ''}`}
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isOpen}
             type="button"
           >
             <span />
@@ -84,8 +125,9 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              onClick={() => handleLinkClick(link.href)}
+              onClick={(event) => scrollToSection(event, link.href)}
               className={activeLink === link.href ? 'active' : ''}
+              aria-current={activeLink === link.href ? 'page' : undefined}
             >
               {link.label}
             </a>
