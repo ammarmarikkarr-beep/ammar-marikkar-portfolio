@@ -8,8 +8,11 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 export default function App() {
-  return (
+return (
     <>
+      <div className="mesh-bg" aria-hidden="true">
+        <div className="blob" />
+      </div>
       <Navbar />
       <Hero />
       <About />
