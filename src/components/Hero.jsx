@@ -1,4 +1,5 @@
 import './Hero.css'
+import ammarPhoto from '../../public - images/ammar-photo.jpg'
 
 export default function Hero() {
   return (
@@ -35,7 +36,7 @@ export default function Hero() {
 
         <div className="hero-right">
           <img
-            src="/images/ammar-photo.jpg"
+            src={ammarPhoto}
             alt="Ammar Marikkar"
             className="hero-photo"
           />
