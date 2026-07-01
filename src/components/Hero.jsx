@@ -34,13 +34,11 @@ export default function Hero() {
         </div>
 
         <div className="hero-right">
-          <div className="hero-image-wrap">
-            <img
-              src="/images/ammar-photo.jpg"
-              alt="Ammar Marikkar"
-              className="hero-photo"
-            />
-          </div>
+          <img
+            src="/images/ammar-photo.jpg"
+            alt="Ammar Marikkar"
+            className="hero-photo"
+          />
         </div>
       </div>
     </section>
