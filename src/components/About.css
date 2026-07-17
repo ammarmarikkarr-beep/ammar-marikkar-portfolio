@@ -1,11 +1,9 @@
 .about {
 
 padding:100px 0;
-
 background:#0b1326;
 
 }
-
 
 
 /* TITLE */
@@ -13,14 +11,9 @@ background:#0b1326;
 .section-title {
 
 text-align:center;
-
 font-size:48px;
-
 font-weight:900;
-
 color:white;
-
-margin-bottom:12px;
 
 }
 
@@ -28,30 +21,22 @@ margin-bottom:12px;
 .title-line {
 
 width:45px;
-
 height:4px;
-
 background:#635bff;
-
-margin:0 auto 50px;
-
+margin:15px auto 50px;
 border-radius:10px;
 
 }
 
 
 
-/* LAYOUT */
+/* Layout */
 
 .about-container {
 
 display:grid;
-
 grid-template-columns:2fr .8fr;
-
 gap:50px;
-
-align-items:start;
 
 }
 
@@ -60,12 +45,11 @@ align-items:start;
 .about-left {
 
 display:flex;
-
 flex-direction:column;
-
 gap:30px;
 
 }
+
 
 
 
@@ -73,39 +57,28 @@ gap:30px;
 
 .about-card {
 
-
-background:#1f2b40;
-
-
-border-radius:14px;
-
+background:#202c42;
 
 padding:28px;
 
+border-radius:14px;
 
-border:none;
-
-
-transition:none;
-
+transition:.35s;
 
 }
 
 
-
-/* Remove hover changing */
 
 .about-card:hover {
 
-transform:none;
-
-background:#1f2b40;
+background:#293751;
 
 }
 
 
 
 
+/* ICONS */
 
 .about-card h3 {
 
@@ -115,151 +88,187 @@ font-size:20px;
 
 font-weight:800;
 
-margin-bottom:18px;
+display:flex;
+
+align-items:center;
+
+gap:12px;
 
 }
 
+
+
+.about-card h3::first-letter {
+
+color:#635bff;
+
+transition:.3s;
+
+}
+
+
+
+.about-card:hover h3 {
+
+color:#ffffff;
+
+}
+
+
+
+.about-card:hover h3::first-letter {
+
+color:#a78bfa;
+
+}
+
+
+
+/* TEXT */
 
 
 .about-card p {
 
-color:#d4ddf7;
-
-font-size:16px;
+color:#d5ddf5;
 
 line-height:1.8;
 
-}
-
-
-
-/* SPECIALITY LIST */
-
-
-.about-card ul {
-
-list-style:none;
-
-padding:0;
-
-margin:0;
+font-size:16px;
 
 }
 
+
+
+
+
+/* SPECIALITIES */
 
 
 .about-card li {
 
+color:#d5ddf5;
 
-position:relative;
-
-
-padding-left:25px;
-
-
-margin-bottom:20px;
-
-
-font-size:16px;
-
-
-color:#d7e1ff;
-
+margin-bottom:18px;
 
 cursor:pointer;
 
-
-transition:.2s;
-
+transition:.25s;
 
 }
 
 
 
-
-.about-card li::before {
-
-
-content:"✓";
-
-
-position:absolute;
-
-
-left:0;
-
-
-color:#635bff;
-
-
-font-weight:900;
-
-
-}
-
-
-
-/* Press effect only */
-
-.about-card li:active {
-
-
-transform:scale(.96);
-
+.about-card li:hover {
 
 color:#ffffff;
 
+transform:translateX(8px);
 
 }
 
 
 
 
-/* STAT CARD */
+
+.about-card li::marker {
+
+color:#635bff;
+
+}
+
+
+
+/* STAT BOX */
 
 
 .stats-card {
 
-
 background:
 
 linear-gradient(
-
 180deg,
-
 #5b4bff,
-
-#4936d8
-
+#4534d5
 );
 
 
 border-radius:18px;
 
-
 padding:35px 20px;
 
+overflow:hidden;
 
 }
+
+
 
 
 
 .stat {
 
-
 text-align:center;
 
 margin-bottom:40px;
 
+
+/* animation */
+
+opacity:0;
+
+transform:translateY(-60px);
+
+animation:statsDown .8s forwards;
+
+
 }
 
 
 
-.stat:last-child {
+.stat:nth-child(1){
+animation-delay:.2s;
+}
 
-margin-bottom:0;
+
+.stat:nth-child(2){
+animation-delay:.4s;
+}
+
+
+.stat:nth-child(3){
+animation-delay:.6s;
+}
+
+
+.stat:nth-child(4){
+animation-delay:.8s;
+}
+
+
+
+
+@keyframes statsDown {
+
+
+from{
+
+opacity:0;
+
+transform:translateY(-60px);
 
 }
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
 
 
 
@@ -272,7 +281,7 @@ font-weight:900;
 
 color:white;
 
-margin:0 0 8px;
+margin:0;
 
 
 }
@@ -281,42 +290,24 @@ margin:0 0 8px;
 
 .stat p {
 
-
 color:white;
 
 font-size:14px;
 
-opacity:.9;
-
-
 }
 
 
 
 
 
-/* MOBILE */
+/* Responsive */
+
 
 @media(max-width:900px){
-
 
 .about-container{
 
 grid-template-columns:1fr;
-
-}
-
-
-}
-
-
-
-@media(max-width:500px){
-
-
-.section-title{
-
-font-size:36px;
 
 }
 
