@@ -1,5 +1,4 @@
 import './About.css'
-import { FaLightbulb, FaHeart, FaStar } from "react-icons/fa"
 
 export default function About() {
 
@@ -26,10 +25,12 @@ export default function About() {
           <div className="about-left">
 
 
+            {/* Journey */}
+
             <div className="about-card">
 
               <h3>
-                <FaLightbulb className="about-icon" />
+                <span className="about-icon">💡</span>
                 My Journey
               </h3>
 
@@ -38,7 +39,7 @@ export default function About() {
                 With over 3 years of experience in digital marketing and content creation,
                 I help brands build their online presence through creative strategies,
                 data-driven campaigns, and engaging content.
-                
+
                 <br /><br />
 
                 From developing brand identities to executing digital campaigns,
@@ -51,11 +52,12 @@ export default function About() {
 
 
 
+            {/* Values */}
+
             <div className="about-card">
 
-
               <h3>
-                <FaHeart className="about-icon" />
+                <span className="about-icon">♥</span>
                 My Values
               </h3>
 
@@ -74,34 +76,56 @@ export default function About() {
 
 
 
+
+            {/* Specialties */}
+
             <div className="about-card">
 
 
               <h3>
-                <FaStar className="about-icon" />
+                <span className="about-icon">★</span>
                 My Specialties
               </h3>
 
 
+
               <ul>
 
-                <li>Search Engine Optimization (SEO)</li>
+                <li>
+                  Search Engine Optimization (SEO)
+                </li>
 
-                <li>Social Media Marketing & Strategy</li>
 
-                <li>Content Creation & Marketing</li>
+                <li>
+                  Social Media Marketing & Strategy
+                </li>
 
-                <li>Digital Advertising (Google Ads & Meta Ads)</li>
 
-                <li>Brand Strategy</li>
+                <li>
+                  Content Creation & Marketing
+                </li>
 
-                <li>Analytics & Performance Reporting</li>
+
+                <li>
+                  Digital Advertising (Google Ads & Meta Ads)
+                </li>
+
+
+                <li>
+                  Brand Strategy
+                </li>
+
+
+                <li>
+                  Analytics & Performance Reporting
+                </li>
 
 
               </ul>
 
 
             </div>
+
 
 
           </div>
@@ -111,7 +135,8 @@ export default function About() {
 
 
 
-          {/* RIGHT SIDE STATISTICS */}
+
+          {/* RIGHT SIDE */}
 
 
           <div className="stats-card">
@@ -180,6 +205,7 @@ export default function About() {
             </div>
 
 
+
           </div>
 
 
@@ -191,7 +217,6 @@ export default function About() {
 
 
     </section>
-
 
   )
 
