@@ -1,4 +1,5 @@
 import './About.css'
+import { FaLightbulb, FaHeart, FaStar } from "react-icons/fa"
 
 export default function About() {
 
@@ -28,7 +29,8 @@ export default function About() {
             <div className="about-card">
 
               <h3>
-                💡 My Journey
+                <FaLightbulb className="about-icon" />
+                My Journey
               </h3>
 
 
@@ -36,7 +38,9 @@ export default function About() {
                 With over 3 years of experience in digital marketing and content creation,
                 I help brands build their online presence through creative strategies,
                 data-driven campaigns, and engaging content.
+                
                 <br /><br />
+
                 From developing brand identities to executing digital campaigns,
                 I combine creativity and analytics to deliver measurable results.
               </p>
@@ -46,11 +50,13 @@ export default function About() {
 
 
 
+
             <div className="about-card">
 
 
               <h3>
-                ❤️ My Values
+                <FaHeart className="about-icon" />
+                My Values
               </h3>
 
 
@@ -67,11 +73,13 @@ export default function About() {
 
 
 
+
             <div className="about-card">
 
 
               <h3>
-                ⭐ My Specialties
+                <FaStar className="about-icon" />
+                My Specialties
               </h3>
 
 
@@ -102,6 +110,7 @@ export default function About() {
 
 
 
+
           {/* RIGHT SIDE STATISTICS */}
 
 
@@ -123,6 +132,7 @@ export default function About() {
 
 
 
+
             <div className="stat">
 
               <h2>
@@ -139,6 +149,7 @@ export default function About() {
 
 
 
+
             <div className="stat">
 
               <h2>
@@ -150,6 +161,7 @@ export default function About() {
               </p>
 
             </div>
+
 
 
 
