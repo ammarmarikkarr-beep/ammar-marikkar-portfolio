@@ -10,7 +10,6 @@
    TITLE
 ========================= */
 
-
 .section-title {
 
   text-align:center;
@@ -33,9 +32,8 @@
 }
 
 
-
 /* =========================
-   MAIN LAYOUT
+   LAYOUT
 ========================= */
 
 
@@ -61,7 +59,6 @@
 
 
 
-
 /* =========================
    ABOUT CARDS
 ========================= */
@@ -75,13 +72,12 @@
 
   border-radius:14px;
 
-  transition:.35s ease;
+  transition:
+  background .3s ease;
 
 }
 
 
-
-/* Only colour change */
 
 .about-card:hover {
 
@@ -113,9 +109,9 @@
 
 
 
-
-
-/* ICON */
+/* =========================
+   ICONS
+========================= */
 
 
 .about-icon {
@@ -124,7 +120,10 @@
 
   font-size:24px;
 
-  transition:.3s ease;
+  transition:
+
+  color .3s ease,
+  transform .3s ease;
 
 }
 
@@ -134,10 +133,17 @@
 
   color:#ffffff;
 
+  transform:scale(1.15);
+
 }
 
 
 
+
+
+/* =========================
+   TEXT
+========================= */
 
 
 .about-card p {
@@ -149,8 +155,6 @@
   line-height:1.8;
 
 }
-
-
 
 
 
@@ -175,7 +179,7 @@
 
   position:relative;
 
-  padding-left:25px;
+  padding-left:28px;
 
   margin-bottom:18px;
 
@@ -217,7 +221,7 @@
 
 .about-card li:active {
 
-  transform:scale(.95);
+  transform:scale(.96);
 
 }
 
@@ -229,7 +233,6 @@
 
 
 .stats-card {
-
 
   background:
 
@@ -255,37 +258,17 @@
   top:160px;
 
 
-  transition:transform .45s ease;
-
-
 }
 
 
 
-/* scroll movement */
-
-.floating-stats {
-
-
-  transform:translateY(0);
-
-}
-
-
-
-
-
-/* =========================
-   STAT ITEMS
-========================= */
-
+/* keep original size */
 
 .stat {
 
   text-align:center;
 
   margin-bottom:40px;
-
 
 }
 
@@ -301,7 +284,6 @@
 
 .stat h2 {
 
-
   font-size:42px;
 
   font-weight:900;
@@ -310,13 +292,11 @@
 
   margin:0 0 8px;
 
-
 }
 
 
 
 .stat p {
-
 
   color:white;
 
@@ -328,81 +308,71 @@
 
 
 
-
-
 /* =========================
-   SCROLL FEEL
+   SCROLL POSITION EFFECT
 ========================= */
 
 
-/* When About section enters viewport */
+.floating-stats {
 
-.about-container:hover .floating-stats {
-
-
-  transform:translateY(35px);
-
+  animation:none;
 
 }
 
 
-
-
 /* =========================
-   MOBILE
+   RESPONSIVE
 ========================= */
 
 
 @media(max-width:900px){
 
 
-  .about-container {
+.about-container {
 
-    grid-template-columns:1fr;
+  grid-template-columns:1fr;
 
-  }
+}
 
 
 
-  .stats-card {
+.stats-card {
 
-    position:relative;
+  position:relative;
 
-    top:0;
+  top:0;
 
-  }
-
+}
 
 
 }
 
 
 
-
 @media(max-width:500px){
 
 
-  .section-title {
+.section-title {
 
-    font-size:36px;
+  font-size:36px;
 
-  }
-
-
-
-  .about-card {
-
-    padding:22px;
-
-  }
+}
 
 
 
-  .stat h2 {
+.about-card {
 
-    font-size:36px;
+  padding:22px;
 
-  }
+}
+
+
+
+.stat h2 {
+
+  font-size:36px;
+
+}
 
 
 }
