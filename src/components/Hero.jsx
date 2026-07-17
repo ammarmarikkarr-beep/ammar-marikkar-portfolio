@@ -1,5 +1,4 @@
 import './Hero.css'
-import ammarPhoto from '../../public - images/ammar-photo.jpg'
 
 export default function Hero() {
   return (
@@ -32,14 +31,6 @@ export default function Hero() {
               Let&apos;s Connect <span>✉</span>
             </a>
           </div>
-        </div>
-
-        <div className="hero-right">
-          <img
-            src={ammarPhoto}
-            alt="Ammar Marikkar"
-            className="hero-photo"
-          />
         </div>
       </div>
     </section>
