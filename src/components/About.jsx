@@ -1,65 +1,186 @@
-import useReveal from '../hooks/useReveal'
 import './About.css'
 
-const SPECIALTIES = [
-  'Search Engine Optimization (SEO)',
-  'Google & Meta Ads (PPC)',
-  'Social Media Strategy',
-  'Content Marketing',
-  'Email Marketing',
-  'Video Editing & Production',
-]
-
-const STATS = [
-  { value: '30+', label: 'Campaigns Run' },
-  { value: '15+', label: 'Brands Worked With' },
-  { value: '2–3', label: 'Years Experience' },
-  { value: '4.2x', label: 'Avg. ROAS Delivered' },
-]
-
 export default function About() {
-  const ref = useReveal()
 
   return (
-    <section id="about" className="section about">
+
+    <section className="about" id="about">
+
       <div className="container">
-        <p className="eyebrow">About me</p>
-        <h2 className="about-heading">
-          Marketing that's judged by
-          <br />
-          numbers, not opinions.
+
+        <h2 className="section-title">
+          About Me
         </h2>
 
-        <div className="about-grid reveal" ref={ref}>
-          <div className="about-text">
-            <p>
-              I'm a digital marketing executive with 2–3 years of hands-on experience
-              running SEO, paid advertising, social media, content, and email campaigns
-              for brands that need real, trackable growth — not vanity metrics.
-            </p>
-            <p>
-              I work end-to-end: research and strategy, creative execution, campaign
-              setup, and the analytics that tell us what actually worked. Every project
-              is built around one question — did it move the number that matters?
-            </p>
 
-            <div className="specialties">
-              {SPECIALTIES.map((s) => (
-                <span className="chip" key={s}>{s}</span>
-              ))}
+        <div className="title-line"></div>
+
+
+
+        <div className="about-container">
+
+
+          {/* LEFT SIDE */}
+
+          <div className="about-left">
+
+
+            <div className="about-card">
+
+              <h3>
+                💡 My Journey
+              </h3>
+
+
+              <p>
+                With over 3 years of experience in digital marketing and content creation,
+                I help brands build their online presence through creative strategies,
+                data-driven campaigns, and engaging content.
+                <br /><br />
+                From developing brand identities to executing digital campaigns,
+                I combine creativity and analytics to deliver measurable results.
+              </p>
+
             </div>
+
+
+
+
+            <div className="about-card">
+
+
+              <h3>
+                ❤️ My Values
+              </h3>
+
+
+              <p>
+                I believe in creativity, consistency, and data-driven decision making.
+                Every project is an opportunity to create meaningful connections
+                between brands and audiences while delivering real business growth.
+              </p>
+
+
+            </div>
+
+
+
+
+
+            <div className="about-card">
+
+
+              <h3>
+                ⭐ My Specialties
+              </h3>
+
+
+              <ul>
+
+                <li>Search Engine Optimization (SEO)</li>
+
+                <li>Social Media Marketing & Strategy</li>
+
+                <li>Content Creation & Marketing</li>
+
+                <li>Digital Advertising (Google Ads & Meta Ads)</li>
+
+                <li>Brand Strategy</li>
+
+                <li>Analytics & Performance Reporting</li>
+
+
+              </ul>
+
+
+            </div>
+
+
           </div>
 
-          <div className="stats-grid">
-            {STATS.map((s) => (
-              <div className="stat-card" key={s.label}>
-                <span className="stat-value">{s.value}</span>
-                <span className="stat-label">{s.label}</span>
-              </div>
-            ))}
+
+
+
+
+          {/* RIGHT SIDE STATISTICS */}
+
+
+          <div className="stats-card">
+
+
+            <div className="stat">
+
+              <h2>
+                15+
+              </h2>
+
+              <p>
+                Projects Completed
+              </p>
+
+            </div>
+
+
+
+
+            <div className="stat">
+
+              <h2>
+                10+
+              </h2>
+
+              <p>
+                Happy Clients
+              </p>
+
+            </div>
+
+
+
+
+
+            <div className="stat">
+
+              <h2>
+                3+
+              </h2>
+
+              <p>
+                Years Experience
+              </p>
+
+            </div>
+
+
+
+
+
+            <div className="stat">
+
+              <h2>
+                70%
+              </h2>
+
+              <p>
+                Average Growth
+              </p>
+
+            </div>
+
+
           </div>
+
+
+
         </div>
+
+
       </div>
+
+
     </section>
+
+
   )
+
 }
