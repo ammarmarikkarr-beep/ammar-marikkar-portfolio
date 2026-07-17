@@ -1,42 +1,50 @@
 .about {
 
-padding:100px 0;
-background:#0b1326;
+  padding:100px 0;
+  background:#0b1326;
 
 }
 
 
-/* TITLE */
+/* =========================
+   TITLE
+========================= */
+
 
 .section-title {
 
-text-align:center;
-font-size:48px;
-font-weight:900;
-color:white;
+  text-align:center;
+  font-size:48px;
+  font-weight:900;
+  color:white;
+  margin-bottom:12px;
 
 }
 
 
 .title-line {
 
-width:45px;
-height:4px;
-background:#635bff;
-margin:15px auto 50px;
-border-radius:10px;
+  width:45px;
+  height:4px;
+  background:#635bff;
+  margin:0 auto 50px;
+  border-radius:10px;
 
 }
 
 
 
-/* Layout */
+/* =========================
+   MAIN LAYOUT
+========================= */
+
 
 .about-container {
 
-display:grid;
-grid-template-columns:2fr .8fr;
-gap:50px;
+  display:grid;
+  grid-template-columns:2fr .8fr;
+  gap:50px;
+  align-items:start;
 
 }
 
@@ -44,96 +52,101 @@ gap:50px;
 
 .about-left {
 
-display:flex;
-flex-direction:column;
-gap:30px;
+  display:flex;
+  flex-direction:column;
+  gap:30px;
 
 }
 
 
 
 
-/* CARDS */
+
+/* =========================
+   ABOUT CARDS
+========================= */
+
 
 .about-card {
 
-background:#202c42;
+  background:#202c42;
 
-padding:28px;
+  padding:28px;
 
-border-radius:14px;
+  border-radius:14px;
 
-transition:.35s;
+  transition:.35s ease;
 
 }
 
 
+
+/* Only colour change */
 
 .about-card:hover {
 
-background:#293751;
+  background:#293750;
 
 }
 
 
 
 
-/* ICONS */
 
 .about-card h3 {
 
-color:white;
+  display:flex;
 
-font-size:20px;
+  align-items:center;
 
-font-weight:800;
+  gap:12px;
 
-display:flex;
+  color:white;
 
-align-items:center;
+  font-size:20px;
 
-gap:12px;
+  font-weight:800;
 
-}
-
-
-
-.about-card h3::first-letter {
-
-color:#635bff;
-
-transition:.3s;
+  margin-bottom:18px;
 
 }
 
 
 
-.about-card:hover h3 {
 
-color:#ffffff;
+
+/* ICON */
+
+
+.about-icon {
+
+  color:#635bff;
+
+  font-size:24px;
+
+  transition:.3s ease;
 
 }
 
 
 
-.about-card:hover h3::first-letter {
+.about-card:hover .about-icon {
 
-color:#a78bfa;
+  color:#ffffff;
 
 }
 
 
 
-/* TEXT */
 
 
 .about-card p {
 
-color:#d5ddf5;
+  color:#d5ddf5;
 
-line-height:1.8;
+  font-size:16px;
 
-font-size:16px;
+  line-height:1.8;
 
 }
 
@@ -141,18 +154,54 @@ font-size:16px;
 
 
 
-/* SPECIALITIES */
+/* =========================
+   SPECIALITIES
+========================= */
+
+
+.about-card ul {
+
+  list-style:none;
+
+  padding:0;
+
+  margin:0;
+
+}
+
 
 
 .about-card li {
 
-color:#d5ddf5;
+  position:relative;
 
-margin-bottom:18px;
+  padding-left:25px;
 
-cursor:pointer;
+  margin-bottom:18px;
 
-transition:.25s;
+  color:#d5ddf5;
+
+  font-size:16px;
+
+  cursor:pointer;
+
+  transition:.25s ease;
+
+}
+
+
+
+.about-card li::before {
+
+  content:"✓";
+
+  position:absolute;
+
+  left:0;
+
+  color:#635bff;
+
+  font-weight:900;
 
 }
 
@@ -160,128 +209,106 @@ transition:.25s;
 
 .about-card li:hover {
 
-color:#ffffff;
-
-transform:translateX(8px);
+  color:white;
 
 }
 
 
 
+.about-card li:active {
 
-
-.about-card li::marker {
-
-color:#635bff;
+  transform:scale(.95);
 
 }
 
 
 
-/* STAT BOX */
+/* =========================
+   STATISTICS CARD
+========================= */
 
 
 .stats-card {
 
-background:
 
-linear-gradient(
-180deg,
-#5b4bff,
-#4534d5
-);
+  background:
+
+  linear-gradient(
+    180deg,
+    #5b4bff,
+    #4936d8
+  );
 
 
-border-radius:18px;
+  border-radius:18px;
 
-padding:35px 20px;
 
-overflow:hidden;
+  padding:35px 20px;
+
+
+  height:max-content;
+
+
+  position:sticky;
+
+
+  top:160px;
+
+
+  transition:transform .45s ease;
+
 
 }
 
 
 
+/* scroll movement */
+
+.floating-stats {
+
+
+  transform:translateY(0);
+
+}
+
+
+
+
+
+/* =========================
+   STAT ITEMS
+========================= */
 
 
 .stat {
 
-text-align:center;
+  text-align:center;
 
-margin-bottom:40px;
-
-
-/* animation */
-
-opacity:0;
-
-transform:translateY(-60px);
-
-animation:statsDown .8s forwards;
+  margin-bottom:40px;
 
 
 }
 
 
 
-.stat:nth-child(1){
-animation-delay:.2s;
-}
+.stat:last-child {
 
-
-.stat:nth-child(2){
-animation-delay:.4s;
-}
-
-
-.stat:nth-child(3){
-animation-delay:.6s;
-}
-
-
-.stat:nth-child(4){
-animation-delay:.8s;
-}
-
-
-
-
-@keyframes statsDown {
-
-
-from{
-
-opacity:0;
-
-transform:translateY(-60px);
+  margin-bottom:0;
 
 }
-
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-
-}
-
 
 
 
 .stat h2 {
 
 
-font-size:42px;
+  font-size:42px;
 
-font-weight:900;
+  font-weight:900;
 
-color:white;
+  color:white;
 
-margin:0;
+  margin:0 0 8px;
 
 
 }
@@ -290,9 +317,12 @@ margin:0;
 
 .stat p {
 
-color:white;
 
-font-size:14px;
+  color:white;
+
+  font-size:14px;
+
+  opacity:.9;
 
 }
 
@@ -300,16 +330,79 @@ font-size:14px;
 
 
 
-/* Responsive */
+/* =========================
+   SCROLL FEEL
+========================= */
+
+
+/* When About section enters viewport */
+
+.about-container:hover .floating-stats {
+
+
+  transform:translateY(35px);
+
+
+}
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
 
 
 @media(max-width:900px){
 
-.about-container{
 
-grid-template-columns:1fr;
+  .about-container {
+
+    grid-template-columns:1fr;
+
+  }
+
+
+
+  .stats-card {
+
+    position:relative;
+
+    top:0;
+
+  }
+
+
 
 }
+
+
+
+
+@media(max-width:500px){
+
+
+  .section-title {
+
+    font-size:36px;
+
+  }
+
+
+
+  .about-card {
+
+    padding:22px;
+
+  }
+
+
+
+  .stat h2 {
+
+    font-size:36px;
+
+  }
 
 
 }
