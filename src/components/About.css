@@ -10,51 +10,70 @@
    TITLE
 ========================= */
 
+
 .section-title {
 
   text-align:center;
+
   font-size:48px;
+
   font-weight:900;
-  color:white;
+
+  color:#ffffff;
+
   margin-bottom:12px;
 
 }
 
 
+
 .title-line {
 
   width:45px;
+
   height:4px;
+
   background:#635bff;
+
   margin:0 auto 50px;
+
   border-radius:10px;
 
 }
 
 
+
+
 /* =========================
-   LAYOUT
+   MAIN LAYOUT
 ========================= */
 
 
 .about-container {
 
   display:grid;
+
   grid-template-columns:2fr .8fr;
+
   gap:50px;
+
   align-items:start;
 
 }
 
 
 
+
 .about-left {
 
   display:flex;
+
   flex-direction:column;
+
   gap:30px;
 
 }
+
 
 
 
@@ -70,12 +89,17 @@
 
   padding:28px;
 
-  border-radius:14px;
+  border-radius:16px;
 
   transition:
-  background .3s ease;
+  background .35s ease,
+  border .35s ease;
+
+  border:1px solid transparent;
 
 }
+
+
 
 
 
@@ -83,10 +107,17 @@
 
   background:#293750;
 
+  border-color:rgba(99,102,241,.35);
+
 }
 
 
 
+
+
+/* =========================
+   HEADINGS + ICONS
+========================= */
 
 
 .about-card h3 {
@@ -109,9 +140,6 @@
 
 
 
-/* =========================
-   ICONS
-========================= */
 
 
 .about-icon {
@@ -120,12 +148,17 @@
 
   font-size:24px;
 
+  display:inline-flex;
+
   transition:
 
   color .3s ease,
+
   transform .3s ease;
 
 }
+
+
 
 
 
@@ -133,10 +166,9 @@
 
   color:#ffffff;
 
-  transform:scale(1.15);
+  transform:scale(1.2);
 
 }
-
 
 
 
@@ -154,12 +186,15 @@
 
   line-height:1.8;
 
+  margin:0;
+
 }
 
 
 
+
 /* =========================
-   SPECIALITIES
+   SPECIALITIES LIST
 ========================= */
 
 
@@ -175,11 +210,12 @@
 
 
 
+
 .about-card li {
 
   position:relative;
 
-  padding-left:28px;
+  padding-left:30px;
 
   margin-bottom:18px;
 
@@ -195,6 +231,8 @@
 
 
 
+
+
 .about-card li::before {
 
   content:"✓";
@@ -207,7 +245,11 @@
 
   font-weight:900;
 
+  transition:.25s ease;
+
 }
+
+
 
 
 
@@ -215,20 +257,36 @@
 
   color:white;
 
+  padding-left:35px;
+
 }
+
+
+
+
+
+.about-card li:hover::before {
+
+  color:white;
+
+}
+
+
 
 
 
 .about-card li:active {
 
-  transform:scale(.96);
+  transform:scale(.95);
 
 }
 
 
 
+
+
 /* =========================
-   STATISTICS CARD
+   RIGHT STAT CARD
 ========================= */
 
 
@@ -237,9 +295,13 @@
   background:
 
   linear-gradient(
+
     180deg,
+
     #5b4bff,
+
     #4936d8
+
   );
 
 
@@ -262,7 +324,12 @@
 
 
 
-/* keep original size */
+
+
+/* =========================
+   STAT CONTENT
+========================= */
+
 
 .stat {
 
@@ -274,11 +341,15 @@
 
 
 
+
+
 .stat:last-child {
 
   margin-bottom:0;
 
 }
+
+
 
 
 
@@ -296,6 +367,8 @@
 
 
 
+
+
 .stat p {
 
   color:white;
@@ -308,20 +381,25 @@
 
 
 
+
+
 /* =========================
-   SCROLL POSITION EFFECT
+   SCROLL FLOAT EFFECT
 ========================= */
 
 
-.floating-stats {
+.stats-card {
 
   animation:none;
 
 }
 
 
+
+
+
 /* =========================
-   RESPONSIVE
+   TABLET
 ========================= */
 
 
@@ -345,11 +423,27 @@
 }
 
 
+
 }
 
 
 
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
 @media(max-width:500px){
+
+
+.about {
+
+  padding:70px 0;
+
+}
+
 
 
 .section-title {
@@ -368,11 +462,20 @@
 
 
 
+.about-card h3 {
+
+  font-size:18px;
+
+}
+
+
+
 .stat h2 {
 
   font-size:36px;
 
 }
+
 
 
 }
